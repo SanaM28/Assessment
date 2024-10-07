@@ -27,6 +27,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG")
 
+# Set Logger level in .env file.
+LOGGER_LEVEL = os.getenv("LOGGER_LEVEL")
+
 ALLOWED_HOSTS = []
 
 
@@ -87,7 +90,7 @@ LOGGING = {
     },
     "handlers": {
         "console": {
-            "level": "DEBUG",
+            "level": LOGGER_LEVEL,
             "class": "logging.StreamHandler",
             "formatter": "simple",
         },
@@ -104,7 +107,7 @@ LOGGING = {
         },
         "blog": {
             "handlers": ["console"],
-            "level": "DEBUG",  # Display custom logs at all levels
+            "level": LOGGER_LEVEL,  # Display custom logs at all levels
             "propagate": False,
         },
     },
