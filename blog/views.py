@@ -366,7 +366,8 @@ def update_post(request, id):
                     logger.error(
                         f"Error occurred while broadcasting updated post: {str(e)}"
                     )
-                return HttpResponseRedirect("/dashboard/")
+                # return HttpResponseRedirect("/dashboard/")
+                return HttpResponseRedirect("/")
         else:
             logger.info(
                 f"Handling GET request to display the update form for post with ID {id}."
